@@ -1,51 +1,37 @@
-var won = 0;
-var lost = 0;
-var attempts = 10;
-var usedArray = [];
-var ranLetter = ranLetter;
-var letters = "qwertyuiopasdfghjklzxcvbnm"
+var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-ranLetter = letters[Math.floor(Math.random() * letters.length)];
-console.log(ranLetter);
+        var wins = 0;
+        var losses = 0;
+        var numGuesses = 10;
+        var guessChoices = [];
 
-function jsGuess() {
-    ranLetter = letters[Math.floor(Math.random() * letters.length)];
-    console.log(ranLetter);
-}
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            guessChoices.push(userGuess);
+            var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
 
-document.onkeyup = function (event) {
-    var playerGuess = event.key
-}
+                
+                if (userGuess == "o") {
+                wins++;
+                numGuesses = 10;
+            }
 
-if (playerGuess === ranLetter) {
-    won++
-    attempts = 10
-    usedArray = [];
-}
+                else {
+                numGuesses--;
+            }
 
-jsGuess();
-if (playerGuess !== ranLetter){
-    attempts--;
-}
+                if (numGuesses === 0) {
+                    losses ++;
+                    numGuesses = 10;
+            }
 
-if (attempts == 0) {
-    lost++;
-    usedArray = []
-    attempts = 10;
+                var html =
+                "<h1> The Pyschic Game </h1>" +
+                "<p>Guess what letter I'm thinking of!</p>" +
+                "<p>Wins: " + wins + "</p>" +
+                "<p>Losses: " + losses + "</p>" +
+                "<p>Guesses left: " + numGuesses + "</p>" +
+                "<p>Your Guesses fo far: " + guessChoices.join(", ") + "</p>";
 
-if (usedArray.indexOf(playerGuess) >= 0) {
-
-} else {
-usedArray.push(playerGuess);
-document.getElementById('playerGuess').innerHTML = usedArray
-console.log(usedArray);
-
-}
-
-document.getElementById('won').innerHTML = won;
-document.getElementById('lost').innerHTML = lost;
-document.getElementById('attempts').innerHTML = attempts;
-
-}
-
-
+                document.querySelector("#game").innerHTML = html;
+            };
