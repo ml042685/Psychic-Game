@@ -10,10 +10,12 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
             guessChoices.push(userGuess);
             var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
 
+
                 
                 if (userGuess == "o") {
                 wins++;
                 numGuesses = 10;
+                alert("You Win!");
             }
 
                 else {
@@ -23,6 +25,7 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
                 if (numGuesses === 0) {
                     losses ++;
                     numGuesses = 10;
+                    alert("You Lose!")
             }
 
                 var html =
