@@ -59,4 +59,4 @@ In this assignment, you'll create one of two possible computer games: Word Guess
 
 9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
 
-"Click link to play game" :
+"Click link to play game" : https://ml042685.github.io/Psychic-Game/
