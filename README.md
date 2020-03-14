@@ -1,4 +1,4 @@
-# JavaScript Assignment
+# Psychic Game
 
 ### Overview
 
